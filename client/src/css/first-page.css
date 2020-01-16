@@ -1,0 +1,39 @@
+.front-page {
+  color: blue;
+}
+
+/*landing page*/
+.landing-page {
+  background-image: 
+  radial-gradient(
+  circle at top center, 
+  #A1AF9F 10px, #3E4A3D 30%, beige
+  );
+  min-height: 100vh;
+  padding: 100px;
+}
+
+.landing-page-text {
+  color: #3E4A3D;
+  transition: color 3s;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 28px;
+  letter-spacing: 3px; 
+  font-weight: lighter;
+}
+
+.landing-page-text-div a:hover {
+  color: #27c73A;
+  transition: color 3s;
+}
+
+.landing-page-text-div >  {
+}
+
+.waiting-text {
+  font-style: italic;
+}
