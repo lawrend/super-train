@@ -1,0 +1,12 @@
+.location-detail-card {
+  letter-spacing: normal; 
+  line-height: normal;
+  font-weight: normal;
+}
+
+.ui.cards > .card > .content, .ui.card > .content > .description {
+  /* color: red !important; */
+  letter-spacing: normal; 
+  line-height: normal;
+
+}

@@ -37,6 +37,7 @@ include ApiHelper
 
   # GET /locations/getmap/1
   def get_map
+    # provided a location returns the lat and long as a json object called center
     @coordinates = Location.get_coordinates(@location.loc) #get_coordinates is apiHelper method 
     @lat = @coordinates['results'][0]['geometry']['location']['lat']
     @long = @coordinates['results'][0]['geometry']['location']['lng']

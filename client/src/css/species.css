@@ -1,0 +1,109 @@
+/*possible pallette*/
+/*based on 27c73a
+ * 294936
+ * 3e6259
+ * 5b8266
+ * aef6c7 */
+
+/* use rgb to set opacity (4th value) leaving text w normal visibility */
+.ui.centered.cards > .ui.card.species-card {
+  background: rgb(134, 152, 133, .3);
+}
+
+
+.ui.centered.cards > .ui.card.species-card:hover .species-image {
+  opacity: 1;
+  transition: opacity 1.5s;
+}
+
+.ui {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
+
+}
+
+
+/* all cards displayed selected by selector below */
+#root > div > div > div > div {
+  /* background: red; */
+}
+
+div > a > h2:hover {
+  color: #27c73A;
+}
+
+.location-name {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: lighter;
+  letter-spacing: 1.2px; 
+  /* min-height: 10vh; */
+  font-size: 4em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.species-image {
+  opacity: .1;
+  transition: opacity 1.5s;
+}
+
+.species-name {
+  color: #294936;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: lighter;
+  letter-spacing: 1.2px; 
+  min-height: 4vh;
+  font-size: 32px;
+}
+
+.status {
+  color: #aef6c7;
+  font-style: italic;
+}
+
+.species-description {
+  color: #EFE;
+}
+
+.click-for-google {
+  color: #BEB;
+  font-style: italic;
+}
+
+.click-for-google:hover {
+  color: #27c73A;
+}
+
+.home-link {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* font-weight: bold; */
+  letter-spacing: 1.2px; 
+  padding-top: .75em; 
+  min-height: 30vh;
+  font-size: 4em;
+
+  color: #252;
+}
+
+.home-link:hover {
+  color: #27c73A;
+}
+
+
+div > div > h3 {
+  /* color: orange; */
+  /* opacity: 1.5; */
+}
+
