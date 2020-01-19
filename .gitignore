@@ -54,4 +54,5 @@ yarn-error.log*
 ./client/node_modules/.cache
 /client/node_modules
 
+/client/src/config.js
 
