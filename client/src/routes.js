@@ -4,7 +4,7 @@ import { Route, withRouter, Switch } from 'react-router-dom';
 import Home from './containers/Home.js'
 import FirstPage from './components/FirstPage.js';
 import ErrorRoute from './components/ErrorRoute';
-import LocationDetail from './components/LocationDetail.js';
+import SpeciesItemContainer from './containers/SpeciesItemContainer.js';
 import LocationListingsContainer from './containers/LocationListingsContainer';
 
 class Routes extends Component {
@@ -13,7 +13,7 @@ class Routes extends Component {
       <Switch>
         <Route exact path="/" component={FirstPage} />
         <Route path="/home" component={Home} />
-        <Route path="/location-detail/:name" component={LocationDetail} />
+        <Route path="/location-detail/:name" component={SpeciesItemContainer} />
         <Route path="/species/locations/:id/:speciesName" component={LocationListingsContainer} />
         <Route component={ErrorRoute} />
       </Switch>
