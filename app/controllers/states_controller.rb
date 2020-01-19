@@ -1,4 +1,4 @@
-class StatesController < ApplicationController
+class StatesController < ApiController
   include ApiHelper
   before_action :set_state, only: [:show]
   before_action :set_state_by_name, only: [:state_locations, :add_cords_to_st_locations, :state_species]

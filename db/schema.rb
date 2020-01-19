@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_15_012704) do
+ActiveRecord::Schema.define(version: 2020_01_19_051932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2020_01_15_012704) do
     t.float "long"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "state_id"
+    t.index ["state_id"], name: "index_locations_on_state_id"
   end
 
   create_table "species", force: :cascade do |t|
@@ -54,6 +56,7 @@ ActiveRecord::Schema.define(version: 2020_01_15_012704) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "locations", "states"
   add_foreign_key "species_locations", "locations"
   add_foreign_key "species_locations", "species"
 end

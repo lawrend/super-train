@@ -2,7 +2,8 @@ import React, { Component }from 'react';
 import { Link } from 'react-router-dom';
 import { getLocations } from '../store/actions/locations/getLocations.js';
 import { connect } from 'react-redux';
-import '../css/front-page.css';
+import '../css/first-page.css';
+
 
 const mapStateToProps = state => ({
   loading: state.locations.loading,

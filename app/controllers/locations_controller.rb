@@ -1,4 +1,4 @@
-class LocationsController < ApplicationController
+class LocationsController < ApiController
 include ApiHelper 
 
   before_action :set_location, only: [:show, :getmap ]

@@ -1,4 +1,4 @@
-class SpeciesController < ApplicationController
+class SpeciesController < ApiController
 
   before_action :set_species, only: [:show, :show_loc]
 

@@ -1,6 +1,7 @@
 module Enigma
   extend ActiveSupport::Concern
 
+  module ClassMethods
     def get_enigma_dataset(datasetID)
       conn = Faraday.new "https://public.enigma.com/api/"
       resp = conn.get("datasets/#{datasetID}") do |req|
@@ -13,4 +14,5 @@ module Enigma
       end
       @dataset = JSON.parse(resp2.body)
     end
+  end
 end

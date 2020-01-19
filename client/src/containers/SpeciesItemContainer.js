@@ -33,18 +33,18 @@ class SpeciesItemContainer extends Component {
     let species = this.props.selectedLocationSpecies.map(s => <SpeciesItem name={s.name} id={s.id} desc={s.desc} status={s.status} imgsrc={s.imgsrc} key={s.id}/> )
     return(
       <div>
-      <div>
-        <h1 className={'location-name'}>
-          {this.placeName}
-        </h1>
-      </div>
+        <div>
+          <h1 className={'location-name'}>
+            {this.placeName}
+          </h1>
+        </div>
 
-      <Card.Group centered>
-        {species}
-      </Card.Group>
-      <a href='/home'><div className={'home-link'}>Home</div></a>
-    </div>
-    )
+        <Card.Group centered>
+          {species}
+        </Card.Group>
+        <a href='/home'><div className={'home-link'}>Home</div></a>
+      </div>
+      )
 
 }
 }
