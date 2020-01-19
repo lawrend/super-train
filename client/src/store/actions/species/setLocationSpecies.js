@@ -9,7 +9,6 @@ const setSelectedStSpecies = locationSpecies => ({
 export const getSelectedStSpecies = name => dispatch => {
   axios.get('/api/locations/getspecies/' + name)
     .then(resp => {
-      console.log(resp.data)
       const species = resp.data;
       dispatch (setSelectedStSpecies(species))
     })
