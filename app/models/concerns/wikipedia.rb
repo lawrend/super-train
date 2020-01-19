@@ -1,5 +1,4 @@
 module Wikipedia
-  require 'faraday_middleware'
   extend ActiveSupport::Concern
 
   # capitalize first letter of name replace spaces with underscore get summary page from wikipedia or not found
