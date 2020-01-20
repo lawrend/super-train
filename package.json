@@ -1,0 +1,18 @@
+{
+  "name": "endangered",
+  "version": "1.0.0",
+  "description": "react and redux plus rails backend map of endangered species",
+  "main": "index.js",
+  "repository": "https://github.com/lawrend/super-train.git",
+  "author": "lawrend <douglas_lawrence@mac.com>",
+  "license": "MIT",
+  "engines": {
+    "node": "13.6.0",
+    "yarn": "1.21.1"
+  },
+  "scripts": {
+    "build": "yarn --cwd client install && yarn --client build",
+    "deploy": "cp -a client/build/. public/",
+    "heroku-postbuild": "yarn build && yarn deploy"
+  }
+}
