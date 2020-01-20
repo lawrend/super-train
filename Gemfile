@@ -29,6 +29,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'faraday', '~> 0.9.2'
 gem 'faraday_middleware'
 
+#aws for persistent files in production
+gem 'aws-sdk-s3', require: false
+
 #adding nokogiri to patch security issues bc nokogiri is a dependancy
 gem 'nokogiri', '>=1.10.4'
 
