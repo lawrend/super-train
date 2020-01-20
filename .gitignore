@@ -45,6 +45,7 @@ yarn-error.log*
 
 # production
 /build
+/public 
 
 # dependencies
 /node_modules

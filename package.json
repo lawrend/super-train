@@ -11,8 +11,8 @@
     "yarn": "1.21.1"
   },
   "scripts": {
-    "build": "yarn --cwd client install && yarn --client build",
-    "deploy": "cp -a client/build/ . public/",
-    "heroku-postbuild": "yarn build && yarn deploy"
+    "build": "yarn --cwd client install && yarn --cwd client build",
+    "deploy": "cp -a client/build/. public/",
+    "heroku-postbuild": "yarn build && yarn deploy && echo 'Client built!'"
   }
 }
