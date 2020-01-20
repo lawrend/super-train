@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { InfoWindow, Map, Marker, GoogleApiWrapper } from 'google-maps-react';
-// import { MAPS_KEY } from '../config.js';
 import cromlech from '../resources/cromlech.png';
 
 export class MapsContainer extends Component {
