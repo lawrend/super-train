@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { InfoWindow, Map, Marker, GoogleApiWrapper } from 'google-maps-react';
-import { MAPS_KEY } from '../config.js';
+// import { MAPS_KEY } from '../config.js';
 import cromlech from '../resources/cromlech.png';
 
 export class MapsContainer extends Component {
@@ -49,8 +49,6 @@ export class MapsContainer extends Component {
   }
 
   render () {
-    console.log("sel st locs ", this.props.selectedStLocations)
-    console.log("showing info window ", this.props.showingInfoWindow)
     const icon_url = {url: cromlech, scaledSize: new this.props.google.maps.Size(34, 34)};
 
     let markers = this.props.selectedStLocations.map(l=> { return <Marker icon={icon_url} onClick={this.onMarkerClick} onMouseover={this.onMarkerHover} lat={l.lat} lng={l.long} position={{lat: l.lat, lng: l.long}} name={l.loc} key={l.id} >
@@ -117,7 +115,7 @@ export class MapsContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: MAPS_KEY,
+  apiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
 })(MapsContainer)
 
 //to make map un navigatable use gestureHandling={'none'}
