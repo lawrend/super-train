@@ -4,13 +4,6 @@ import cromlech from '../resources/cromlech.png';
 
 export class MapsContainer extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      markersDone: false,
-    }
-  }
-
   onMarkerHover = (props, marker, e) => {
     if(marker.name !== this.props.selectedProtectedArea.name) {
       this.props.setSelectedProtectedArea({name: props.name, id: props.id, lat: marker.lat, lng: marker.lng})
@@ -48,10 +41,9 @@ export class MapsContainer extends Component {
   }
 
   render () {
-    const icon_url = {url: cromlech, scaledSize: new this.props.google.maps.Size(34, 34)};
 
-    let markers = this.props.selectedStLocations.map(l=> { return <Marker icon={icon_url} onClick={this.onMarkerClick} onMouseover={this.onMarkerHover} lat={l.lat} lng={l.long} position={{lat: l.lat, lng: l.long}} name={l.loc} key={l.id} >
-      </Marker>})
+    // marker icon
+    const icon_url = {url: cromlech, scaledSize: new this.props.google.maps.Size(34, 34)};
 
     //map styles
     const styles =
@@ -93,6 +85,9 @@ export class MapsContainer extends Component {
           ]
         },
       ]
+
+    let markers = this.props.selectedStLocations.map(l=> { return <Marker icon={icon_url} onClick={this.onMarkerClick} onMouseover={this.onMarkerHover} lat={l.lat} lng={l.long} position={{lat: l.lat, lng: l.long}} name={l.loc} key={l.id} >
+      </Marker>})
 
     return (
       <div>

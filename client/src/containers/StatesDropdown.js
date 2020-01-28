@@ -26,14 +26,15 @@ class StatesDropdown extends Component {
     this.handleMouseleave = this.handleMouseleave.bind(this);
   }
 
+  // mouse enter/mouse leave sets the selected protected area, shows/hides info window
   handleMouseenter(e, value) {
     this.props.protectedAreaSelector({name: e.target.getAttribute('name'), lat: e.target.getAttribute('lat'), lng: e.target.getAttribute('lng')});
     this.props.toggleInfoWindow(true);
   }
 
   handleMouseleave(e, value) {
-      this.props.protectedAreaSelector({name: undefined, lat: undefined, lng: undefined});
-      this.props.toggleInfoWindow(false);
+    this.props.protectedAreaSelector({name: undefined, lat: undefined, lng: undefined});
+    this.props.toggleInfoWindow(false);
   }
 
   handleStateSelection (e, {value}) {
@@ -66,8 +67,10 @@ class StatesDropdown extends Component {
         />
           </div>
           </div>)
+
+    // return inactive dropdown while markers loading
     if(this.props.markersLoading) return (
-  <div>
+      <div>
         <Dropdown
         onChange={this.handleStateSelection}
         placeholder="Select State"
@@ -79,13 +82,12 @@ class StatesDropdown extends Component {
           <Divider />
           <List >
             <List.Content>
-            <Waiter />
+              <Waiter />
             </List.Content>
           </List>
         </div>
+        );
 
-
-    );
     return (
       <div>
         <Dropdown
