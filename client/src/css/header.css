@@ -15,5 +15,12 @@
 .ui.header > .header-tabs {
   text-align: left;
   padding-left: 200px;
+}
 
+.ui.header > .header-text > a {
+  color: #dfd;
+}
+
+.ui.header > .header-text > a:hover {
+  color: green;
 }

@@ -16,7 +16,7 @@ module ApiHelper
     resp = conn.get("geocode/json?address= #{map_name}&components=country:US&key=#{ENV['MAPS_KEY']}")
     @place = JSON.parse(resp.body)
   end
-  
+
   # add lat and lng attributes to location
   def add_lat_lng(pa)
     map_name = pa.loc.gsub(" ", "+")

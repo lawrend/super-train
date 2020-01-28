@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Card } from 'semantic-ui-react';
+import { Header, Card } from 'semantic-ui-react';
 import { getSelectedStSpecies } from '../store/actions/species/setLocationSpecies.js';
 import SpeciesItem from '../components/SpeciesItem';
 import Waiter from '../components/Loader.js';
@@ -16,6 +16,7 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
+// *****
 class SpeciesItemContainer extends Component {
   constructor(props) {
     super(props)
@@ -31,8 +32,17 @@ class SpeciesItemContainer extends Component {
     if (this.props.loading) return <Waiter />;
 
     let species = this.props.selectedLocationSpecies.map(s => <SpeciesItem name={s.name} id={s.id} desc={s.desc} status={s.status} imgsrc={s.imgsrc} key={s.id}/> )
+
     return(
       <div>
+        <Header fixed='top' >
+          <div className="header-text">
+            <a href='/home'>
+              endangered
+            </a>
+          </div>
+        </Header>
+
         <div>
           <h1 className={'location-name'}>
             {this.placeName}

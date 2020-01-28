@@ -27,24 +27,24 @@ class FirstPage extends Component {
         <div className="landing-page">
           <div className="landing-page-text-div">
             <div className="landing-page-text" >
-                end anger ed
+              end anger ed
             </div>
             <div className="waiting-text">
               please wait...
             </div>
           </div>
         </div>
-          )
+        )
     } else {
       return (
         <div className="landing-page">
           <div className="landing-page-text-div">
             <Link className="landing-page-text" to="/home">
-                end anger ed
+              end anger ed
             </Link>
           </div>
         </div>
-          )}
+        )}
   }
 
 }
