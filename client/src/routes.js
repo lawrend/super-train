@@ -6,6 +6,7 @@ import FirstPage from './components/FirstPage.js';
 import ErrorRoute from './components/ErrorRoute';
 import SpeciesItemContainer from './containers/SpeciesItemContainer.js';
 import LocationListingsContainer from './containers/LocationListingsContainer';
+import StatesList from './containers/StatesList.js';
 
 class Routes extends Component {
   render() {
@@ -15,6 +16,7 @@ class Routes extends Component {
         <Route path="/home" component={Home} />
         <Route path="/location-detail/:name" component={SpeciesItemContainer} />
         <Route path="/species/locations/:id/:speciesName" component={LocationListingsContainer} />
+        <Route path="/statenames" component={StatesList} />
         <Route component={ErrorRoute} />
       </Switch>
         )
