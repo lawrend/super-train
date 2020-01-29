@@ -12,6 +12,9 @@ scope '/api' do
   get '/api/locationsbystate', to: 'locations#locations_by_state'
 
   #states
+  post '/api/states/set_favorite_states', to:
+    'states#set_favorite_states'
+  get '/api/states/get_favorite_states', to: 'states#get_favorite_states'
   get '/api/states/locations/:name', to: 'states#state_locations'
   get '/api/states/species/:name', to: 'states#state_species'
   get '/api/states/sel_st_map/:name', to: 'states#state_map'

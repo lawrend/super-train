@@ -55,7 +55,6 @@ class Home extends Component {
         />
             <Divider />
           </div>
-          <div><StatesList /></div>
         </div>
         )
   }

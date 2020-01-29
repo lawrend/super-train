@@ -47,28 +47,44 @@ class StatesController < ApiController
     render json: @species
   end
 
-  # POST /locations
-  def create
-    @state = State.new(state_params)
-
-    if @state.save
-      render json: @state, status: :created, location: @state
-    else
-      render json: @state.errors, status: :unprocessable_entity
+  def set_favorite_states
+    @faves = params[:favorites]
+    @faves.each do |fave|
+      newFave = State.find_by(name: fave)
+      newFave.favorite = true    
+      newFave.save
     end
   end
 
-  private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_state
-    @state = State.find(params[:id])
-  end
+  def get_favorite_states
+    @states = State.all
+    faves = @states.filter{ |i| i if i.favorite === true }
+    render json: faves
+    end
 
-  def set_state_by_name
-    @state = State.find_by(name: params[:name])
+
+    # POST /locations
+    def create
+      @state = State.new(state_params)
+
+      if @state.save
+        render json: @state, status: :created, location: @state
+      else
+        render json: @state.errors, status: :unprocessable_entity
+      end
+    end
+
+    private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_state
+      @state = State.find(params[:id])
+    end
+
+    def set_state_by_name
+      @state = State.find_by(name: params[:name])
+    end
+    # Only allow a trusted parameter "white list" through.
+    def state_params
+      params.require(:state).permit(:name, :abbrev, :favorite, :favorites )
+    end
   end
-  # Only allow a trusted parameter "white list" through.
-  def state_params
-    params.require(:state).permit(:name, :abbrev )
-  end
-end

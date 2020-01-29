@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Header, List, Button, Checkbox } from 'semantic-ui-react';
+import { Grid, Header, List, Button, Checkbox } from 'semantic-ui-react';
 import { getStNames } from '../store/actions/locations/getLocations.js';
 import {setFavoriteStates} from '../store/actions/locations/setFavoriteStates.js'
 
@@ -12,18 +12,44 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getStNames() {
     dispatch(getStNames)
+  },
+  setFavoriteStates(favorites) {
+    dispatch(setFavoriteStates(favorites))
   }
 })
 
+
+
 class StatesList extends Component  {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      faves: []
+    }
+    this.handleCheckboxChange = this.handleCheckboxChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
+  }
+
   componentDidMount() {
     this.props.getStNames();
   }
+  handleClick() {
+    this.props.setFavoriteStates(this.state.faves)
+  }
+
+  handleCheckboxChange(e, data) {
+    this.setState((state, props) => {
+      return {faves: [...state.faves,  data.label]
+      }}
+    )
+  }
 
   render() {
-    let stNames = this.props.stnames.map(state => <List.Item><Checkbox label={state.text} radio={true}>{state.text}</Checkbox></List.Item>)
+    console.log(this.state.faves)
+    let stNames = this.props.stnames.map(state => <List.Item key={state.id}><Checkbox label={state.text} radio={true} onChange={this.handleCheckboxChange}/></List.Item>)
     return (
-    <div>
+      <div>
         <Header fixed='top' >
           <div className="header-text">
             <a href='/home'>
@@ -31,14 +57,18 @@ class StatesList extends Component  {
             </a>
           </div>
         </Header>
+        <h2>Favorite States</h2>
+
         <List relaxed>
-      <List.Header>
-        Favorite States
-      </List.Header>
-      {stNames}
-      </List>
-    </div>
-    )
+
+          <Grid columns={3}>
+            {stNames}
+          </Grid>
+        </List>
+        <Button onClick={this.handleClick}>Save Faves</Button>
+        <Button onClick={this.handleResetClick}>Reset Favorites</Button>
+      </div>
+      )
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(StatesList);
