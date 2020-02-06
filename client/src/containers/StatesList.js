@@ -72,6 +72,7 @@ class StatesList extends Component  {
   render() {
     let stNames = this.props.stnames.map(state => <Grid.Column key={state.id}><Checkbox label={state.name}  onChange={this.handleCheckboxChange} defaultChecked={state.favorite}/></Grid.Column>)
 
+    console.log(this.props.stnames)
     //displays favorites as those in local component state
     let faves = this.state.faves.map(fave => <FavoriteStateItem name={fave} />)
 
