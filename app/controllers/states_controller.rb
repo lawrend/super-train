@@ -12,7 +12,7 @@ class StatesController < ApiController
   def states_for_dropdown
     @states = State.all.order("name")
     @states_options = @states.map do |l|
-      {"key" => l.id, "value" => l.name, "text" => l.name}
+      {"key" => l.id, "value" => l.name, "text" => l.name, 'favorite'=> l.favorite}
     end
     render json: @states_options
   end
@@ -47,13 +47,14 @@ class StatesController < ApiController
     render json: @species
   end
 
-  def set_favorite_states
+  def update_favorite_states
     @faves = params[:favorites]
     @faves.each do |fave|
       newFave = State.find_by(name: fave)
       newFave.favorite = true    
       newFave.save
     end
+    self.get_favorite_states
   end
 
   def get_favorite_states
@@ -61,6 +62,15 @@ class StatesController < ApiController
     faves = @states.filter{ |i| i if i.favorite === true }
     render json: faves
     end
+
+  def reset_favorite_states
+    @states = State.all
+    @states.each do |st|
+      st.favorite = false;
+      st.save
+    end
+    self.get_favorite_states
+  end
 
 
     # POST /locations

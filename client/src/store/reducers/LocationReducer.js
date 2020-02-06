@@ -4,6 +4,7 @@ const initialState = {
   selectedStLocations: [],
   locations: [],
   stnames: [],
+  favorites: [],
   loading: true,
 };
 
@@ -21,6 +22,8 @@ export default function manageLocation (state = initialState, action) {
       return {...state, locations: action.payload, loading: false}
     case 'SET_SELECTED_PROTECTED_AREA':
       return {...state, selectedProtectedArea: action.payload}
+    case 'SET_FAVORITE_STATES':
+      return {...state, favorites: action.payload}
     default:
       return state
   }
