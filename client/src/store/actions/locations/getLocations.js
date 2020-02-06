@@ -33,7 +33,7 @@ dispatch(setStnames(stnames))
 }
 
 export const getStNamesForFavorites = dispatch => {
-  axios.get('/api/states/')
+  axios.get('/api/states/namesforlist')
     .then(resp => {
       console.log(resp.data)
       const stnames = resp.data;
