@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Header, Card } from 'semantic-ui-react';
 import { getSelectedStSpecies } from '../store/actions/species/setLocationSpecies.js';
@@ -37,9 +38,9 @@ class SpeciesItemContainer extends Component {
       <div>
         <Header fixed='top' >
           <div className="header-text">
-            <a href='/home'>
+            <Link to='/home'>
               endangered
-            </a>
+            </Link>
           </div>
         </Header>
 
@@ -52,7 +53,7 @@ class SpeciesItemContainer extends Component {
         <Card.Group centered>
           {species}
         </Card.Group>
-        <a href='/home'><div className={'home-link'}>Home</div></a>
+        <Link to='/home'><div className={'home-link'}>Home</div></Link>
       </div>
       )
 

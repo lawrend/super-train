@@ -41,7 +41,9 @@ class StatesList extends Component  {
   }
 
   handleClick = () => {
+    console.log('a')
     this.props.updateFavoriteStates(this.state.faves)
+    console.log('b')
   }
   // handleClick() {
   //   this.props.updateFavoriteStates(this.state.faves)

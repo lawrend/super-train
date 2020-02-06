@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import { List, Divider, Dropdown } from 'semantic-ui-react';
 import Waiter from '../components/Loader.js';
 import { connect } from 'react-redux';
@@ -104,7 +105,7 @@ class StatesDropdown extends Component {
               {places}
           </List.Content>
           </List>
-          <a href='/statenames'>favorite states</a>
+          <Link to='/statenames'>favorite states</Link>
         </div>
 
         )

@@ -1,15 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Image, Card } from 'semantic-ui-react';
 import '../css/species.css';
 import NotFound from '../resources/resize.jpeg';
 
 export default props => (
-  <Card key={props.id} className="species-card" raised={false} color='olive'>
-    <span className={'species-image'}><Image as='a' href={'/species/locations/' + props.id + '/' + props.name} src={props.imgsrc==='none' ? NotFound : props.imgsrc} /></span>
+  <Card key={props.id} className="species-card" raised={false} color='olive'><Link to={'/species/locations/' + props.id + '/' + props.name}>
+      <span className={'species-image'}><Image  src={props.imgsrc==='none' ? NotFound : props.imgsrc} /></span></Link>
     <Card.Content>
-      <Card.Header as='a' href={'/species/locations/' + props.id + '/' + props.name}>
+      <Link to={'/species/locations/' + props.id + '/' + props.name}>
+      <Card.Header >
         <h2><span className={'species-name'}>{props.name}</span></h2>
       </Card.Header>
+    </Link>
       <Card.Meta>
         <span className={'status'}>{props.status}</span>
       </Card.Meta>
@@ -24,3 +27,7 @@ export default props => (
     </Card.Content>
   </Card>
 )
+// as='a' href={'/species/locations/' + props.id + '/' + props.name}
+//
+// from card header
+//as='a' href={'/species/locations/' + props.id + '/' + props.name}
