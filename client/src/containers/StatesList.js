@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Grid, Header, List, Button, Checkbox } from 'semantic-ui-react';
+import { Grid, Header, Button, Checkbox } from 'semantic-ui-react';
 import FavoriteStateItem from '../components/FavoriteStateItem.js';
 import { getStNames } from '../store/actions/locations/getLocations.js';
 import {resetFavoriteStates, updateFavoriteStates} from '../store/actions/locations/setFavoriteStates.js'
@@ -71,9 +71,7 @@ class StatesList extends Component  {
   }
 
   render() {
-    console.log("local faves: " + this.state.faves)
-    console.log("application level favorites: " + this.props.favorites)
-    let stNames = this.props.stnames.map(state => <Grid.Column key={state.id}><Checkbox label={state.text}  onChange={this.handleCheckboxChange}/></Grid.Column>)
+    let stNames = this.props.stnames.map(state => <Grid.Column key={state.id}><Checkbox label={state.text}  onChange={this.handleCheckboxChange} defaultChecked={state.favorite}/></Grid.Column>)
 
     //displays favorites as those in local component state
     let faves = this.state.faves.map(fave => <FavoriteStateItem name={fave} />)
@@ -92,17 +90,27 @@ class StatesList extends Component  {
         <h2>States</h2><br />
 
         <Grid container columns={4} divided textAlign='left'>
-            {stNames}
+          {stNames}
         </Grid>
         <Button onClick={this.handleClick}>Update Favorites</Button>
         <Button onClick={this.handleResetClick}>Reset Favorites</Button>
-        <h2>
-          Selected Favorites
-        </h2>
-          {applicationFaves}
+        <Grid container columns={2}>
+          <Grid.Column>
+            <h2>
+              New Favorites
+            </h2>
+            {faves}
+          </Grid.Column>
+          <Grid.Column>
+            <h2>
+              Favorites
+            </h2>
+            {applicationFaves}
+          </Grid.Column>
+        </Grid>
       </div>
       )
-  }
+}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(StatesList);
 

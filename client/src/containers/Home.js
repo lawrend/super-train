@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import LeftSideMenu from './LeftSideMenu.js';
 import MapsContainer from './MapsContainer.js';
-import StatesList from './StatesList.js';
 import { setSelectedProtectedArea } from '../store/actions/locations/setSelectedProtectedArea.js';
 import { setMapCenter, setMapZoom } from '../store/actions/maps/getMap.js'
 import { toggleInfoWindow } from '../store/actions/maps/toggleInfoWindow.js'

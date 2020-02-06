@@ -104,7 +104,7 @@ class StatesDropdown extends Component {
               {places}
           </List.Content>
           </List>
-          <a href='/statenames'>states list</a>
+          <a href='/statenames'>favorite states</a>
         </div>
 
         )

@@ -49,6 +49,11 @@ class StatesController < ApiController
 
   def update_favorite_states
     @faves = params[:favorites]
+    State.all.each do |st|
+      st.favorite = false;
+      st.save
+    end
+
     @faves.each do |fave|
       newFave = State.find_by(name: fave)
       newFave.favorite = true    
