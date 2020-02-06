@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Grid, Header, Button, Checkbox } from 'semantic-ui-react';
 import FavoriteStateItem from '../components/FavoriteStateItem.js';
-import { getStNames } from '../store/actions/locations/getLocations.js';
+import { getStNamesForFavorites } from '../store/actions/locations/getLocations.js';
 import {resetFavoriteStates, updateFavoriteStates} from '../store/actions/locations/setFavoriteStates.js'
 
 const mapStateToProps = state => ({
@@ -12,7 +12,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getStNames() {
-    dispatch(getStNames)
+    dispatch(getStNamesForFavorites)
+
   },
   updateFavoriteStates(favorites) {
     dispatch(updateFavoriteStates(favorites))
@@ -51,14 +52,12 @@ class StatesList extends Component  {
     this.setState(() => {
       return {faves: []}
     })
-
   }
   // handleResetClick() {
   //   this.setState(() => {
   //     return {faves: []}
   //   })
   // }
-
 
   handleCheckboxChange = (e, data) => {
     if(data.checked === false ) {

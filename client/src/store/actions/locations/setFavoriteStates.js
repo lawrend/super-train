@@ -14,7 +14,7 @@ export const updateFavoriteStates = locations => dispatch => {
 }
 
 export const SET_FAVORITE_STATES = "SET_FAVORITE_STATES";
-const setFavoriteStates = faves => ({
+export const setFavoriteStates = faves => ({
   type: SET_FAVORITE_STATES,
   payload: faves
 })
