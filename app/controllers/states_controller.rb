@@ -12,7 +12,7 @@ class StatesController < ApiController
   def states_for_dropdown
     @states = State.all.order("name")
     @states_options = @states.map do |l|
-      {"key" => l.id, "value" => l.name, "text" => l.name, 'favorite'=> l.favorite}
+      {"key" => l.id, "value" => l.name, "text" => l.name }
     end
     render json: @states_options
   end
