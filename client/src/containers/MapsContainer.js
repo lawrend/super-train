@@ -86,6 +86,7 @@ export class MapsContainer extends Component {
         },
       ]
 
+    //generate markers
     let markers = this.props.selectedStLocations.map(l=> { return <Marker icon={icon_url} onClick={this.onMarkerClick} onMouseover={this.onMarkerHover} lat={l.lat} lng={l.long} position={{lat: l.lat, lng: l.long}} name={l.loc} key={l.id} >
       </Marker>})
 
