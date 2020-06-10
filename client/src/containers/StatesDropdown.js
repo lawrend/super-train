@@ -105,7 +105,6 @@ class StatesDropdown extends Component {
               {places}
           </List.Content>
           </List>
-          <Link to='/statenames'>favorite states</Link>
         </div>
 
         )
@@ -139,3 +138,6 @@ const mapDispatchToProps = dispatch => ({
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(StatesDropdown);
+
+
+// removed <Link to='/statenames'>favorite states</Link> from line 108 above
