@@ -8,8 +8,8 @@ class StatesController < ApiController
     render json: @states
   end
 
-  # return json state names to use in the dropdown menu
   def states_for_dropdown
+  # return json state names to use in the dropdown menu
     @states = State.all.order("name")
     @states_options = @states.map do |l|
       {"key" => l.id, "value" => l.name, "text" => l.name }
@@ -31,12 +31,12 @@ class StatesController < ApiController
     render json: @protected_areas
   end
 
-  # add_lat_lng is in ApiHelper
   def add_cords_to_st_locations
     @state_locs = @state.locations
     @state_locs.each do |pa|
       if pa.lat === nil
         add_lat_lng(pa)
+        # add_lat_lng is in ApiHelper
       end
     end
     render json: @state_locs

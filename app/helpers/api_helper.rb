@@ -1,7 +1,7 @@
 module ApiHelper
 
-  # Use name of state as address and return google map - causes map to zoom in after state selection
   def generate_state_map(name)
+  # Use name of state as address and return google map - causes map to zoom in after state selection
     map_name = name.gsub(" ", "+")
     conn = Faraday.new "https://maps.googleapis.com/maps/api/"
     resp = conn.get("geocode/json?address= #{map_name}&key=#{ENV['MAPS_KEY']}")
@@ -9,16 +9,16 @@ module ApiHelper
     @new_place = @place['results'][0]['geometry']['location']
   end
 
-  #provide name to google, get coordinates for place
   def get_coordinates(name)
+  #provide place name to google, get coordinates for place
     map_name = name.gsub(" ", "+")
     conn = Faraday.new "https://maps.googleapis.com/maps/api/"
     resp = conn.get("geocode/json?address= #{map_name}&components=country:US&key=#{ENV['MAPS_KEY']}")
     @place = JSON.parse(resp.body)
   end
 
-  # add lat and lng attributes to location
   def add_lat_lng(pa)
+  # get lat and lng info from Google and update those attributes 
     map_name = pa.loc.gsub(" ", "+")
     conn = Faraday.new "https://maps.googleapis.com/maps/api/"
     resp = conn.get("geocode/json?address= #{map_name}&key=#{ENV['MAPS_KEY']}")
@@ -31,6 +31,7 @@ module ApiHelper
   end
 
   def convert_state_abbrev(abbrev)
+    #convert two-letter abbreviations to state name
     case abbrev
     when "AK"
       return "Alaska"

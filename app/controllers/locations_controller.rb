@@ -11,6 +11,7 @@ class LocationsController < ApiController
       @rows = @new_locations['table_rows']['rows']
       @names = @rows.collect {|r| r[1,5]}
       @names.each do |n| 
+
         #change names for google search
         @modded_loc = n[2].gsub("NWR", "National Wildlife Refuge")
         @modded_loca = @modded_loc.gsub(".", "")
@@ -37,8 +38,9 @@ class LocationsController < ApiController
 
   # GET /locations/getmap/1
   def get_map
-    # provided a location returns the lat and long as a json object called center
-    @coordinates = Location.get_coordinates(@location.loc) #get_coordinates is apiHelper method 
+    # when provided a location returns the lat and long as a json object called center
+    @coordinates = Location.get_coordinates(@location.loc) 
+    #get_coordinates is apiHelper method 
     @lat = @coordinates['results'][0]['geometry']['location']['lat']
     @long = @coordinates['results'][0]['geometry']['location']['lng']
     @location.lat = @lat

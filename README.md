@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Project built with React/Redux front end and Rails back end. 
 
-Things you may want to cover:
+APIs Used:
+--Enigma (Government Data)
+--Google Maps
+--Wikipedia
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+If you want to try it yourself, try the heroku version because this thing requires API keys. 
